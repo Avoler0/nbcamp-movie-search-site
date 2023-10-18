@@ -8,35 +8,25 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./detail.css">
   <script src="./src/js/movie.js" defer type="module"></script>
-  <script src="./src/router.js" defer type="module"></script>
   <script src="./src/component/movieCard.js" defer type="module"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 </head>
 
 <body>
+  
+
   <!-- Header -->
   <header class="header">
     <h1 class="logo">로고</h1>
     <input class="search-input" type="text" placeholder="영화 제목 또는 감독명 입력">
     <button class="search-button">검색</button>
   </header>
-
   <!-- Main Section -->
-  <section class="main-section" id="movie-list">
-  
-  </section>
-
+  <section class="main-section" id="movie-list"></section>
 </body>
-<script type="module">
-  window.addEventListener('scroll',()=>{
-    const scrollTop = document.scrollingElement.scrollTop;
-    const headerDom = document.querySelector('header');
-    if(scrollTop === 0){
-      headerDom.classList.remove('active')
-    }else{
-      headerDom.classList.add('active')
-    }
-    
-  })
+<script type="module" defer>
+  
+  
+
 </script>
 </html>

@@ -1,7 +1,7 @@
+import { movieSearch } from "./movie.js";
 
 export const apiFetch = {
   get:async (url) => {
-    console.log('에이피아이 패치')
     try{
       const result = await fetch(url,{
         mode: 'cors',
@@ -35,3 +35,21 @@ export const apiFetch = {
     }
   },
 }
+const input = document.querySelector('.search-input')
+
+input.addEventListener("keyup", async (e) => {
+  if(e.key === 'Enter'){
+    await movieSearch(e.currentTarget.value)
+    input.value = null
+  }
+})
+
+window.addEventListener('scroll', () => {
+  const scrollTop = document.scrollingElement.scrollTop;
+  const headerDom = document.querySelector('header');
+  if (scrollTop === 0) {
+    headerDom.classList.remove('active')
+  } else {
+    headerDom.classList.add('active')
+  }
+})

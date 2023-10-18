@@ -1,4 +1,3 @@
-import { detailPage } from "../component/detailPage.js";
 import { movieCard } from "../component/movieCard.js";
 import { apiFetch } from "./instance.js";
 
@@ -15,8 +14,8 @@ export const movieGenresList = async() => {
 export const mainMovie = async () => {
     try{
       const response = await apiFetch.get('https://api.themoviedb.org/3/movie/now_playing?language=ko-KR&page=1')
-      console.log('리스폰스',response)
-      movieCard(response.results);
+      
+      movieCard(response.results)
     }catch(err){
       console.log('에러',err)
     }
@@ -43,11 +42,15 @@ export const movieVideo = async (movieId) => {
   }
 }
 
-const temp = async () => {
-  const detail = await movieDetail(1008042);
-  detailPage(detail);
+export const movieSearch = async (query) => {
+  try{
+    const response = await apiFetch.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=ko-KR&page=1`)
+    
+    movieCard(response.results)
+  }catch(err){
+    movieVideo(movieId)
+  }
 }
 
-// temp();
-mainMovie();
+if(document.querySelector('.main-section').children.length === 0) mainMovie();
 
