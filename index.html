@@ -6,9 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>영화 검색 사이트</title>
   <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./detail.css">
   <script src="./src/js/movie.js" defer type="module"></script>
   <script src="./src/router.js" defer type="module"></script>
   <script src="./src/component/movieCard.js" defer type="module"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
 </head>
 
 <body>
@@ -21,9 +23,20 @@
 
   <!-- Main Section -->
   <section class="main-section" id="movie-list">
-
+  
   </section>
 
 </body>
-
+<script type="module">
+  window.addEventListener('scroll',()=>{
+    const scrollTop = document.scrollingElement.scrollTop;
+    const headerDom = document.querySelector('header');
+    if(scrollTop === 0){
+      headerDom.classList.remove('active')
+    }else{
+      headerDom.classList.add('active')
+    }
+    
+  })
+</script>
 </html>

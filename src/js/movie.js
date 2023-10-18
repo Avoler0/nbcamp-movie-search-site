@@ -1,3 +1,4 @@
+import { detailPage } from "../component/detailPage.js";
 import { movieCard } from "../component/movieCard.js";
 import { apiFetch } from "./instance.js";
 
@@ -23,7 +24,7 @@ export const mainMovie = async () => {
 
 export const movieDetail = async (movieId) => {
   try{
-    const response = await apiFetch.get(`https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR`)
+    const response = await apiFetch.get(`https://api.themoviedb.org/3/movie/${movieId}?append_to_response=credits&language=ko-KR`)
     
     return response;
   }catch(err){
@@ -41,5 +42,12 @@ export const movieVideo = async (movieId) => {
     movieVideo(movieId)
   }
 }
+
+const temp = async () => {
+  const detail = await movieDetail(1008042);
+  detailPage(detail);
+}
+
+// temp();
 mainMovie();
 

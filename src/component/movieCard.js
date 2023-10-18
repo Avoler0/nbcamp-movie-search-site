@@ -1,4 +1,5 @@
 import { movieDetail, movieGenresList } from "../js/movie.js";
+import { detailPage } from "./detailPage.js";
 
 
 const findGenres = (arr,genresId) => {
@@ -31,15 +32,13 @@ export const movieCard = async(movieList) => {
     )
 
     document.querySelector('.main-section').innerHTML = html.join("");
-        const movieCardDoms = document.querySelectorAll('.movie-card')
     
-    movieCardDoms.forEach((dom) => {
-      dom.addEventListener("click",(event)=>{
-        // event.currentTarget.getAttribute('data-id')
-        console.log(event.currentTarget.getAttribute('data-id'))
+    document.querySelectorAll('.movie-card').forEach((dom) => {
+      dom.addEventListener("click",async (event)=>{
+        const movieId = event.currentTarget.getAttribute('data-id');
+        const detail = await movieDetail(movieId);
+
+        detailPage(detail);
       })
     })
-
-    console.log('무비카드',movieCardDoms)
-  
 }
