@@ -14,8 +14,12 @@ body {
 
 .detail-container .content .info{
   position: absolute;
+  width: 30%;
+  padding: 0 3rem 1rem 1.5rem;
   bottom: 5%;
   left: 5%;
+  color: #fff;
+  background-color: rgba(0,0,0,0.5);
 }
 
 .detail-container .content .info .title{
@@ -32,7 +36,6 @@ body {
 }
 
 .detail-container .content .info .overview{
-  width: 30%;
   word-break: break-all;
   line-height: 1.5;
 }

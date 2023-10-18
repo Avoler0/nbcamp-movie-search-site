@@ -52,15 +52,16 @@ export const detailPage = (detail) => {
   
   document.querySelector('.main-section').innerHTML = html;
 
-  const img = document.querySelector('.detail-backdrop img');
-  const info = document.querySelector('.info');
+  // const img = document.querySelector('.detail-backdrop img');
+  // const info = document.querySelector('.info');
 
-  const colorChange = () => {
-    const colorThief = new ColorThief();
-    const color = colorThief.getPalette(img)
-    console.log('컬러',color)
-    info.style.color = `rgb(${color[0]},${color[1]},${color[2]})`
-  }
+  // const colorChange = () => {
+  //   const colorThief = new ColorThief();
+  //   const color = colorThief.getColor(img)
+  //   console.log('컬러',color)
+  //   info.style.color = `white`
+  //   info.style.backgroundColor = `rgba(0,0,0,0.5)`
+  // }
   
-  img.addEventListener('load', colorChange);
+  // img.addEventListener('load', colorChange);
 }

@@ -37,7 +37,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .header.active{
-  /* background-color: #3498db; */
+  background-color: #3498db;
   transition: all .5s ease;
 }
 
