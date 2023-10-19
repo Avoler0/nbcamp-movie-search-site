@@ -1,4 +1,4 @@
-import { movieSearch } from "./movie.js";
+import { movieSearch, movieVideo } from "./movie.js";
 
 export const apiFetch = {
   get:async (url) => {
@@ -36,7 +36,7 @@ export const apiFetch = {
   },
 }
 const input = document.querySelector('.search-input')
-
+input.focus();
 input.addEventListener("keyup", async (e) => {
   if(e.key === 'Enter'){
     await movieSearch(e.currentTarget.value)
@@ -53,3 +53,24 @@ window.addEventListener('scroll', () => {
     headerDom.classList.add('active')
   }
 })
+
+var modalBox = document.querySelector('#modalBox')
+
+console.log('모달',modalBox)
+if(modalBox){
+  
+
+  modalBox.addEventListener('show.bs.modal', async function () {
+    const modalBtn = document.querySelector('#clipBtn')
+    const movieId = modalBtn.getAttribute('data-id');
+    const response = await movieVideo(movieId)
+    const fi = response.results.find((da)=> da.site === 'YouTube');
+    const iframe = document.querySelector('#yotubueFrame');
+    iframe.src = `https://www.youtube.com/embed/${fi.key}`
+  })
+
+  modalBox.addEventListener('hide.bs.modal', async function () {
+    const iframe = document.querySelector('#yotubueFrame');
+    iframe.src = ""
+  })
+}

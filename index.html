@@ -9,7 +9,10 @@
   <link rel="stylesheet" href="./detail.css">
   <script src="./src/js/movie.js" defer type="module"></script>
   <script src="./src/component/movieCard.js" defer type="module"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -17,12 +20,23 @@
 
   <!-- Header -->
   <header class="header">
-    <h1 class="logo">로고</h1>
     <input class="search-input" type="text" placeholder="영화 제목 또는 감독명 입력">
-    <button class="search-button">검색</button>
   </header>
   <!-- Main Section -->
   <section class="main-section" id="movie-list"></section>
+
+  <!--모달 부분-->
+  <div id="modalBox" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+          <iframe id="yotubueFrame" width="1189" height="669"
+            src="https://www.youtube.com/embed/dKUEIGYfY7A"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 </body>
 <script type="module" defer>
   

@@ -8,11 +8,16 @@ const findDirector = (arr) => {
 
 export const detailPage = (detail) => {
   console.log('디테일!',detail)
-  const {release_date,runtime,status,tagline,title,video,genres,overview,credits,backdrop_path} = detail;
+  const {id,release_date,runtime,status,tagline,title,video,genres,overview,credits,backdrop_path} = detail;
 
   let html;
   html = `
   <div class="detail-container">
+    <div class="detail-back">
+      <button type="button" class="btn btn-secondary">
+        <a href="/">뒤로 가기</a>
+      </button>
+    </div>
     <div class="content">
       <div class="detail-backdrop">
         <img src="https://image.tmdb.org/t/p/original${backdrop_path}" alt="포스터">
@@ -28,7 +33,7 @@ export const detailPage = (detail) => {
         </div>
       </div>
       <div class="use">
-        <button class="use-button" role="button">미리 보기</button>
+        <button id="clipBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBox" data-id="${id}">미리 보기</button>
       </div>
     </div>
     <section class="related">
