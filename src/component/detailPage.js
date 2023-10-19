@@ -3,13 +3,17 @@
 
 const findDirector = (arr) => {
   const res = arr.find((crew) => crew.job === "Director");
-  return res.name;
+  console.log('리턴',res)
+  if(res) return res.name;
+  else return "정보 없음"
+  
 }
 
 export const detailPage = (detail) => {
   console.log('디테일!',detail)
-  const {id,release_date,runtime,status,tagline,title,video,genres,overview,credits,backdrop_path} = detail;
-
+  const {id,release_date,runtime,status,tagline,title,video,genres,overview,credits,backdrop_path,poster_path} = detail;
+  const backImage = backdrop_path ? backdrop_path : poster_path
+  
   let html;
   html = `
   <div class="detail-container">
@@ -20,7 +24,7 @@ export const detailPage = (detail) => {
     </div>
     <div class="content">
       <div class="detail-backdrop">
-        <img src="https://image.tmdb.org/t/p/original${backdrop_path}" alt="포스터">
+        <img src="https://image.tmdb.org/t/p/original${backImage}" alt="포스터">
       </div>
       <div class="info">
         <h1 class="title">${title ? title.replace(/[:\n]/g,':<br>') : original_title}</h1>

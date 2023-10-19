@@ -37,6 +37,10 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
+.header input{
+  padding: .3rem .45rem;
+}
+
 .header.active{
   background-color: #3498db;
   transition: all .5s ease;
