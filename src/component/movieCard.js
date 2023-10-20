@@ -65,6 +65,8 @@ export const movieCard = async (movieList) => {
   document.querySelector('.main-section').append(div);
 
   // 영화 카드 클릭 이벤트
+  console.log('쿼리 셀렉터',document.querySelectorAll('.movie-card'))
+  
   document.querySelectorAll('.movie-card').forEach((dom) => {
     dom.addEventListener("click", async (event) => {
       // 클릭된 요소의 속성 data-id에서 값을 가져옴
